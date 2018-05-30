@@ -201,15 +201,19 @@
                 //キノコの描画情報更新
                 //this.kinoko.Update();
 
+                // マリオのランダムな動きを決定
                 if (randCounter == 0)
                 {
-                    // マリオのランダムな動きを決定
                     randValue = rnd.Next(0, 50) % 5;
                 }
                 
-                //マリオの描画情報更新
-                this.mario.Update(true, randValue);
+                //マリオの描画情報更新(true:auto, false:手動)
+                this.mario.Update(false, randValue);
+
+                // カウントアップ
                 randCounter++;
+
+                // 一定期間は同じ動きをする
                 if (this.randCounter >= 50)
                 {
                     this.randCounter = 0;
@@ -217,8 +221,16 @@
                 
                 //キノコの描画
                 this.kinoko.Draw();
-                // マリオの描画
-                this.mario.Draw();
+
+                // マリオの描画(スター(？))
+                if (this.randCounter % 10 != 0 || this.randCounter % 5 != 0)
+                {
+                    // マリオの描画
+                    this.mario.Draw();
+                }
+
+                // マリオの描画(ノーマル)
+                //this.mario.Draw();
 
                 // 画面の裏側と表側を反転する。(ゲームは次の描画を裏にして、それと入れ替える形で描画しているため)
                 DX.ScreenFlip();
