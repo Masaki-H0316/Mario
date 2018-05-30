@@ -223,14 +223,13 @@
                 this.kinoko.Draw();
 
                 // マリオの描画(スター(？))
-                if (this.randCounter % 10 != 0 || this.randCounter % 5 != 0)
-                {
-                    // マリオの描画
-                    this.mario.Draw();
-                }
+                //if (this.randCounter % 10 != 0 || this.randCounter % 5 != 0)
+                //{
+                //    this.mario.Draw();
+                //}
 
                 // マリオの描画(ノーマル)
-                //this.mario.Draw();
+                this.mario.Draw();
 
                 // 画面の裏側と表側を反転する。(ゲームは次の描画を裏にして、それと入れ替える形で描画しているため)
                 DX.ScreenFlip();

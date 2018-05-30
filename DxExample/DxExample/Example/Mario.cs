@@ -201,12 +201,50 @@ namespace DxExample.Example
             // Bが押下されたかどうか
             if (big == DX.TRUE)
             {
+                const int Interval = 75;
+
+                if (isBig == false)
+                {
+                    for (int i = 0; i < 5; ++i)
+                    {
+                        DX.ClearDrawScreen();
+                        this.SmallMario();
+                        this.Draw();
+                        DX.ScreenFlip();
+                        System.Threading.Thread.Sleep(Interval);
+                        DX.ClearDrawScreen();
+                        this.BigMario();
+                        this.Draw();
+                        DX.ScreenFlip();
+                        System.Threading.Thread.Sleep(Interval);
+                    }
+                }
+
                 isBig = true;
             }
 
             // Vが押下されたかどうか
             if (small == DX.TRUE)
             {
+                const int Interval = 75;
+
+                if (isBig == true)
+                {
+                    for (int i = 0; i < 5; ++i)
+                    {
+                        DX.ClearDrawScreen();
+                        this.BigMario();
+                        this.Draw();
+                        DX.ScreenFlip();
+                        System.Threading.Thread.Sleep(Interval);
+                        DX.ClearDrawScreen();
+                        this.SmallMario();
+                        this.Draw();
+                        DX.ScreenFlip();
+                        System.Threading.Thread.Sleep(Interval);
+                    }
+                }
+
                 isBig = false;
             }
 
